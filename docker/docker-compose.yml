@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # ===========================
+  # API Service
+  # ===========================
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: traffic-monitor-api
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount data directory for video input
+      - ../data:/app/data:ro
+      # Mount outputs directory
+      - ../outputs:/app/outputs
+      # Mount config for easy updates
+      - ../config:/app/config:ro
+      # Mount logs
+      - ../logs:/app/logs
+    environment:
+      - FLASK_ENV=production
+      - LOG_LEVEL=INFO
+      - DB_PATH=/app/data/traffic.db
+    restart: unless-stopped
+    networks:
+      - traffic-net
+    # Uncomment for GPU support (requires nvidia-docker)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  # ===========================
+  # Database (Optional - PostgreSQL)
+  # ===========================
+  # Uncomment if using PostgreSQL instead of SQLite
+  # database:
+  #   image: postgres:15-alpine
+  #   container_name: traffic-monitor-db
+  #   environment:
+  #     POSTGRES_DB: traffic_monitor
+  #     POSTGRES_USER: traffic_user
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD:-change_me}
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - traffic-net
+  #   restart: unless-stopped
+
+  # ===========================
+  # Frontend (Optional - Streamlit)
+  # ===========================
+  # frontend:
+  #   build:
+  #     context: ..
+  #     dockerfile: docker/Dockerfile.frontend
+  #   container_name: traffic-monitor-frontend
+  #   ports:
+  #     - "8501:8501"
+  #   environment:
+  #     - API_URL=http://api:5000
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - traffic-net
+  #   restart: unless-stopped
+
+networks:
+  traffic-net:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local

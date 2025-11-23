@@ -1,0 +1,310 @@
+# Smart Traffic Monitor - .gitignore
+
+# ===========================
+# Python
+# ===========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ===========================
+# IDEs and Editors
+# ===========================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===========================
+# OS Generated Files
+# ===========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ===========================
+# Project Specific
+# ===========================
+
+# Model weights (large files)
+models/*.pt
+models/*.pth
+models/*.onnx
+models/*.trt
+models/*.engine
+models/*.ckpt
+models/*.h5
+models/*.pb
+models/deepsort/
+
+# Except placeholder or config files
+!models/README.md
+!models/.gitkeep
+
+# Video files (too large for git)
+data/sample_videos/*.mp4
+data/sample_videos/*.avi
+data/sample_videos/*.mov
+data/sample_videos/*.mkv
+data/sample_videos/*.flv
+
+# Keep data directory structure
+!data/sample_videos/.gitkeep
+!data/README.md
+
+# Output files
+outputs/
+results/
+*.mp4
+*.avi
+output_*.jpg
+output_*.png
+annotated_*.mp4
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Configuration files with secrets
+config/secrets.yaml
+config/credentials.json
+config/.env
+streams.txt
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Temporary files
+tmp/
+temp/
+cache/
+.cache/
+
+# Performance profiling
+*.prof
+*.lprof
+
+# ===========================
+# Docker
+# ===========================
+# Docker volumes and data
+docker/volumes/
+docker/data/
+
+# ===========================
+# Documentation
+# ===========================
+# Build artifacts
+docs/_build/
+docs/.doctrees/
+
+# ===========================
+# Frontend (if using React)
+# ===========================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# ===========================
+# Misc
+# ===========================
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Large datasets
+*.csv
+*.parquet
+!data/sample.csv  # Example: keep small sample files
+
+# Credentials and secrets
+*.pem
+*.key
+*.crt
+*_secret.*
+*_private.*
+
+# ===========================
+# Git LFS (if using for large files)
+# ===========================
+# Tracked by LFS but ignore local copies
+# *.pt filter=lfs diff=lfs merge=lfs -text

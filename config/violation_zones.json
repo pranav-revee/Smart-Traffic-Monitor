@@ -1,0 +1,53 @@
+{
+  "description": "Violation zone definitions for traffic monitoring",
+  "version": "1.0",
+  "zones": [
+    {
+      "id": "line_1",
+      "type": "line_crossing",
+      "name": "Main Street Crossing",
+      "coordinates": [
+        {"x": 100, "y": 300},
+        {"x": 500, "y": 300}
+      ],
+      "allowed_direction": "north_to_south",
+      "enabled": true
+    },
+    {
+      "id": "zone_1",
+      "type": "red_zone",
+      "name": "No Stop Zone - Intersection",
+      "coordinates": [
+        {"x": 200, "y": 150},
+        {"x": 400, "y": 150},
+        {"x": 400, "y": 250},
+        {"x": 200, "y": 250}
+      ],
+      "dwell_threshold_seconds": 3,
+      "enabled": true
+    },
+    {
+      "id": "flow_1",
+      "type": "wrong_way",
+      "name": "Highway Lane 1",
+      "coordinates": [
+        {"x": 50, "y": 200},
+        {"x": 600, "y": 200},
+        {"x": 600, "y": 280},
+        {"x": 50, "y": 280}
+      ],
+      "expected_direction": "east",
+      "direction_tolerance_degrees": 45,
+      "enabled": true
+    }
+  ],
+  "calibration": {
+    "pixels_per_meter": 20,
+    "reference_line": {
+      "description": "Known distance for calibration",
+      "start": {"x": 100, "y": 400},
+      "end": {"x": 200, "y": 400},
+      "distance_meters": 5
+    }
+  }
+}
