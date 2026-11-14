@@ -1,19 +1,7 @@
 # Smart Traffic Monitor
 
-Monitor traffic congestion and vehicle flow from video.
+Counts vehicles and summarizes congestion from traffic video with object detection (YOLO-style).
 
-## Problem
+Lightweight alternative to dense sensor networks for basic traffic intelligence.
 
-Cities need lightweight ways to estimate traffic conditions without full sensor networks.
-
-## Approach
-
-Computer-vision detection (for example YOLO-based) on traffic video to count vehicles and summarize flow.
-
-## Stack
-
-Python · video analytics · object detection
-
-## Output
-
-Congestion and flow insights for traffic analysis prototypes.
+**Skills:** video analytics · object detection · computer vision · Python
